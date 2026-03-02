@@ -3,10 +3,13 @@ package hospital.management.system;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 
 import javax.swing.*;
 
-public class Login extends JFrame {
+public class Login extends JFrame implements ActionListener {
     JTextField textField;
     JPasswordField passField;
     JButton login,cancel;
@@ -46,6 +49,7 @@ public class Login extends JFrame {
         login.setFont(new Font("serif",Font.BOLD,15));
         login.setForeground(Color.white);
         login.setBackground(Color.BLACK);
+        login.addActionListener(this);
         add(login);
 
         cancel = new JButton("Cancel");
@@ -53,6 +57,7 @@ public class Login extends JFrame {
         cancel.setFont(new Font("serif",Font.BOLD,15));
         cancel.setForeground(Color.white);
         cancel.setBackground(Color.BLACK);
+        cancel.addActionListener(this);
         add(cancel);
 
 
@@ -63,5 +68,27 @@ public class Login extends JFrame {
     }
     public static void main(String[] args){
         new Login();
+    }
+    public void actionPerformed(ActionEvent ae) {
+        if(ae.getSource()==login){
+            try{
+                conn c= new conn();
+                String user=textField.getText();
+                String pass=passField.getText();
+                String q="select * from login where ID ='"+user+"'and pass='"+pass+"'";
+                ResultSet rs = c.statement.executeQuery(q);
+                if(rs.next()){
+                    setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Invalid Username and Password");
+                }
+
+
+            }catch(Exception e){
+                System.out.println(e.getMessage());
+            }
+        }else{
+            System.exit(10);
+        }
     }
 }
