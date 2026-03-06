@@ -1,10 +1,13 @@
 package hospital.management.system;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 
 import javax.swing.*;
-public class Room extends JFrame{
+import net.proteanit.sql.DbUtils;
+public class Room extends JFrame implements ActionListener{
     JTable table;
     Room(){
         setLayout(null);
@@ -32,17 +35,44 @@ public class Room extends JFrame{
             String q= "select * from room";
             ResultSet rs = c.statement.executeQuery(q);
             while(rs.next()){
-                // table.setModel(DbUtils);
+                table.setModel(DbUtils.resultSetToTableModel(rs));
             }
         }catch(Exception e){
             e.getStackTrace();
         }
+        JLabel label1= new JLabel("Room No.");
+        label1.setBounds(12,15,80,15);
+        label1.setFont(new Font("Tahoma",Font.BOLD,14));
+        panel.add(label1);
 
+        JLabel label2= new JLabel("Availability");
+        label2.setBounds(140,15,80,15);
+        label2.setFont(new Font("Tahoma",Font.BOLD,14));
+        panel.add(label2);
 
+        JLabel label3= new JLabel("Price");
+        label3.setBounds(290,15,80,15);
+        label3.setFont(new Font("Tahoma",Font.BOLD,14));
+        panel.add(label3);
 
+        JLabel label4= new JLabel("Bed_Type");
+        label4.setBounds(400,15,80,15);
+        label4.setFont(new Font("Tahoma",Font.BOLD,14));
+        panel.add(label4);
+        
+        JButton back = new JButton("Back");
+        back.setBounds(200,500,120,30);
+        back.setForeground(Color.white);
+        back.setBackground(Color.black);
+        panel.add(back);
+        back.addActionListener(this);
+        
         setVisible(true);
         setSize(900,600);
         setLocation(300,230);
+    }
+    public void actionPerformed(ActionEvent e) {
+        setVisible(false);
     }
     public static void main(String[] args){
         new Room();

@@ -57,8 +57,7 @@ public class Reception extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                
-
+                new Room();
             }
         });
 
@@ -70,8 +69,7 @@ public class Reception extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                
-
+                    new Department();
             }
         });
 
