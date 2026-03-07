@@ -107,7 +107,7 @@ public class Reception extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+                new Patient_Discharge();
 
             }
         });
