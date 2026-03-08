@@ -1,0 +1,50 @@
+create database hospitalmanagementsystem;
+use hospitalmanagementsystem;
+create table login(
+ID varchar(20),
+pass varchar(20));
+insert into login values("Vishal","12345");
+
+create table patient_info (
+id varchar(20),
+number varchar(20),
+name varchar(20),
+gender varchar(20),
+patient_disease varchar(20),
+room_number varchar(20),
+time varchar(100),
+deposite varchar(20)
+);
+select * from  patient_info;
+
+create table room(room_no varchar(20),availability varchar(20),price varchar(20),room_type varchar(20));
+select * from room; 
+insert into room values("100","Availabil","500","G Bed 1");
+insert into room values("101","Availabil","500","G Bed 2");
+insert into room values("102","Availabil","500","G Bed 3");
+insert into room values("103","Availabil","500","G Bed 4");
+insert into room values("200","Availabil","1500","Private Room");
+insert into room values("201","Availabil","1500","Private Room");
+insert into room values("202","Availabil","1500","Private Room");
+insert into room values("203","Availabil","1500","Private Room");
+insert into room values("300","Availabil","3500","ICU Bed 1");
+insert into room values("301","Availabil","3500","ICU Bed 2");
+insert into room values("302","Availabil","3500","ICU Bed 3");
+insert into room values("303","Availabil","3500","ICU Bed 4");
+insert into room values("304","Availabil","3500","ICU Bed 5");
+insert into room values("305","Availabil","3500","ICU Bed 6");
+
+create table department(
+department varchar(100),
+phone_no varchar(20));
+select * from department;
+
+insert into department values(
+"Surgical Department","2651324"),("Nursing Department","9873498"),("Operation Theater Complex","2375478324"),("Paramedical Department","34756324");
+
+create table emp_info(name varchar(20),age varchar(10), phone_no varchar(20), salary varchar(20),gmail varchar(50),aadhar_number varchar(20));
+insert into emp_info values("Doctor1","30","347534567","50000","dr@gmailcom","7924875932485"),("Doctor2","35","3945644","75000","dr2@gmail.com","23457928347590");
+select * from emp_info;
+select * from room;
+create table ambulance (name varchar(20),gender varchar(20),car_name varchar(20),availability varchar(20),location varchar(20));
+insert into ambulance values("arun","male","zen","available","delhi");
