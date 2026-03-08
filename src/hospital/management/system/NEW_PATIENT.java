@@ -4,8 +4,6 @@ import java.awt.*;
 import java.util.Date;
 import javax.swing.*;
 
-import com.mysql.*;
-
 import java.awt.event.*;
 import java.sql.ResultSet;
 
