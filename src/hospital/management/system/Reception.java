@@ -94,7 +94,7 @@ public class Reception extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+                new ALL_Patient_Info();
 
             }
         });
@@ -133,8 +133,7 @@ public class Reception extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                
-
+                new Ambulance();
             }
         });
 
